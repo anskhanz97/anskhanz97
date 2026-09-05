@@ -28,7 +28,7 @@ flowchart LR
     API --> DOMAIN[Domain Services]
     DOMAIN --> DB[(MySQL)]
     DOMAIN --> JOBS[Queues / Redis]
-    DOMAIN --> EXT[Xero / POS / Webhooks]
+    DOMAIN --> EXT[Xero / WhatsApp / Stripe / POS]
     JOBS --> EXT
 ```
 
@@ -43,7 +43,7 @@ I focus on the boundaries where products become dependable: authorization, tenan
 - **Integration boundaries:** isolate OAuth 2.0, token refresh, webhooks, third-party APIs, and provider-specific behavior behind testable services
 - **Operational feedback:** add diagnostics, structured logs, API documentation, focused tests, and debugging paths that help teams understand production behavior
 
-The result is architecture that can serve browser clients, background workers, desktop applications, and external platforms without letting each consumer invent its own business rules.
+The result is architecture that can serve browser clients, background workers, desktop applications, and external platforms without letting each consumer invent its own business rules. A major example is the loyalty platform I independently designed and built as a separate, reusable product: it connects the till, the middle application, and the loyalty platform so loyalty workflows can be integrated into both hospitality and retail environments while keeping data synchronized across all three layers.
 
 ## What I work on
 
@@ -85,14 +85,19 @@ The source repositories remain private under the company organization. This prof
 
 ### Professional impact across XEPOS products
 
+- **Loyalty platform architecture:** independently designed and built a complete, separate loyalty platform that integrates with the till and middle application, enabling the same loyalty capabilities to work across hospitality and retail while synchronizing state across all three platforms
 - **Loyalty platforms:** built and maintained member, reward, tier, campaign, QR, export, redemption, balance, and POS-facing workflows across multiple services
 - **Hospitality systems:** supported operational product flows, integrations, synchronization jobs, and APIs used alongside desktop applications maintained by C# teams
 - **Retail platforms:** worked on till/cloud synchronization, accounting integrations, webhook processing, multi-tenant business rules, and resilient event flows
 - **Laravel backend:** delivered APIs, controllers, form requests, middleware, policies, services, jobs, events, listeners, notifications, migrations, Eloquent models, resources, and scheduled commands
 - **Queues and workers:** handled queued exports, webhook processing, integration retries, token refresh, background synchronization, failure recovery, and operational diagnostics using queue and Redis patterns
+- **Queue reliability on Forge:** created and configured multiple queue workers on Laravel Forge to distribute workloads, prevent bottlenecks, improve throughput, and provide capacity for future growth
+- **After-commit consistency:** used Laravel `DB::afterCommit` patterns when workers were saturated or overloaded, ensuring follow-up jobs were dispatched only after the database transaction had safely committed
 - **Data correctness:** protected loyalty and money-like state with transactions, locking, idempotency, validation, auditability, and explicit state transitions
 - **API enablement:** provided and maintained APIs for C# desktop developers, helping them build, integrate, debug, and maintain desktop workflows without duplicating core business rules
-- **Cross-functional delivery:** collaborated across backend, frontend, C# desktop, QA, product, and integration teams while working across multiple projects, APIs, and architecture layers
+- **Third-party platforms:** integrated and maintained Xero, WhatsApp, Stripe, POS, and other external APIs with authentication, webhooks, retries, token refresh, and failure-aware processing
+- **Application automation:** built synchronization commands, schedulers, observers, events, listeners, and background workflows to keep platforms aligned without relying on manual intervention
+- **Cross-architecture delivery:** translated business requirements into coordinated changes across independent Laravel services, databases, queue workers, third-party APIs, browser clients, and C# desktop applications while collaborating with multiple specialist teams
 - **Production ownership:** investigated defects across client, API, queue, database, and third-party boundaries, then improved tests, diagnostics, documentation, and recovery paths
 
 Much of this work appears in GitHub's private contribution activity and merged pull-request history, while repository contents remain restricted. The public profile therefore documents the systems, responsibilities, and engineering problems I worked on rather than publishing company source.
