@@ -35,6 +35,15 @@ At XEPOS Ltd., I contribute to private retail, hospitality, and loyalty products
 
 The source repositories remain private under the company organization. This profile describes my engineering contribution without presenting employer-owned code as personal intellectual property.
 
+### Professional impact across XEPOS products
+
+- **Loyalty:** built and maintained member, reward, tier, campaign, QR, export, and POS-facing workflows
+- **Hospitality:** supported product flows and integrations across operational systems where accuracy and reliability matter
+- **Retail:** worked on till/cloud synchronization, accounting integrations, webhook processing, and multi-tenant business rules
+- **Platform engineering:** handled authentication, queued jobs, token refresh, diagnostics, API contracts, concurrency, and production troubleshooting
+
+Much of this work appears in GitHub's private contribution activity and merged pull-request history, while repository contents remain restricted. The public profile therefore documents the systems, responsibilities, and engineering problems I worked on rather than publishing company source.
+
 ## Tech stack
 
 `PHP` `Laravel` `MySQL` `Eloquent` `Laravel Sanctum` `Queues` `Redis` `Vue 3` `React` `TypeScript` `JavaScript` `Tailwind` `Vite` `REST APIs` `OAuth 2.0` `Webhooks` `Git` `Postman` `MQL5`
