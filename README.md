@@ -2,6 +2,8 @@
 
 ### Backend-first Full-Stack Developer | Laravel / PHP | APIs, Integrations & Reliable Systems
 
+<p align="center"><a href="https://anskhanz97.github.io"><strong>🌐 View my interactive portfolio: anskhanz97.github.io</strong></a></p>
+
 <p align="center">
   <img src="https://img.shields.io/badge/Backend-Laravel%20%7C%20PHP-ff2d20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel and PHP" />
   <img src="https://img.shields.io/badge/Frontend-Vue%20%7C%20React-42b883?style=for-the-badge&logo=vuedotjs&logoColor=white" alt="Vue and React" />
@@ -160,6 +162,7 @@ I use AI tools as part of my development workflow for exploration, scaffolding, 
 
 ## Connect
 
+- Portfolio: [anskhanz97.github.io](https://anskhanz97.github.io)
 - Email: [anskhanz97@gmail.com](mailto:anskhanz97@gmail.com)
 - LinkedIn: [linkedin.com/in/anskhano](https://linkedin.com/in/anskhano)
 - Location: Lahore, Pakistan
