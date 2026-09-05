@@ -29,13 +29,14 @@ flowchart LR
     DOMAIN --> DB[(MySQL)]
     DOMAIN --> JOBS[Queues / Redis]
     DOMAIN --> LOYALTY[Loyalty Program]
-    LOYALTY --> TILL[TILL / Point of Sale]
-    LOYALTY --> MIDDLE[Middle Application]
+    HOSP[Hospitality Platform / App Store] -->|One-click install| LOYALTY
+    RETAIL[Retail Platform / App Store] -->|One-click install| LOYALTY
+    LOYALTY --> TILL[Connected TILL / Point of Sale]
     JOBS --> EXT[Xero / WhatsApp / Stripe / Webhooks]
     LOYALTY --> JOBS
 ```
 
-I focus on the boundaries where products become dependable: authorization, tenant isolation, state transitions, retries, idempotency, observability, and integration failure handling. The Loyalty Program is a good example: it coordinates the TILL, the Middle Application, and the Loyalty service so the same member, reward, and redemption state can move reliably between Hospitality and Retail workflows.
+I focus on the boundaries where products become dependable: authorization, tenant isolation, state transitions, retries, idempotency, observability, and integration failure handling. The Loyalty Program is a good example: Hospitality and Retail act as the host platforms—the Middle Applications whose app stores can install the Loyalty application—while the Loyalty service connects to their TILL and Point of Sale workflows and keeps member, reward, redemption, and balance state synchronized.
 
 ### How I think about the architecture
 
@@ -46,7 +47,7 @@ I focus on the boundaries where products become dependable: authorization, tenan
 - **Integration boundaries:** isolate OAuth 2.0, token refresh, webhooks, third-party APIs, and provider-specific behavior behind testable services
 - **Operational feedback:** add diagnostics, structured logs, API documentation, focused tests, and recovery paths so engineers can understand and repair production behavior
 
-The result is architecture that can serve browser clients, background workers, desktop applications, and external platforms without letting each consumer invent its own business rules. A major example is the separate Loyalty Program I independently designed and built: it connects the TILL, Middle Application, and Loyalty service so Loyalty workflows can be integrated into both Hospitality and Retail environments while keeping data synchronized across all three layers.
+The result is architecture that can serve browser clients, background workers, desktop applications, and external platforms without letting each consumer invent its own business rules. A major example is the separate Loyalty Program I independently designed and built: it can be installed into the Hospitality or Retail host platform, then connect its workflows to the relevant TILL and Point of Sale environment while keeping data synchronized across the integration boundary.
 
 ## What I work on
 
@@ -63,9 +64,9 @@ The result is architecture that can serve browser clients, background workers, d
 | Project | What it demonstrates |
 | --- | --- |
 | [Rent a Car Management SaaS](https://github.com/anskhanz97/rent-a-car-management-system) | Personal Laravel 12 + Vue 3/TypeScript SaaS for rental businesses: multi-tenancy, scoped access, fleet and customer operations, availability, quotations, reservations, pricing, handover/return evidence, maintenance, payments, deposits, owner settlements, integrations, auditability, OpenAPI, queues, Horizon, and a documented delivery roadmap |
-| Loyalty Program | Independently designed and built as a separate, reusable platform spanning the TILL, Middle Application, Hospitality, and Retail workflows; covers members, rewards, tiers, campaigns, QR flows, exports, redemptions, balances, and Point of Sale contracts |
+| Loyalty Program | Independently designed and built as a separate, reusable platform installed into Hospitality and Retail host applications; connects their TILL and Point of Sale workflows and covers members, rewards, tiers, campaigns, QR flows, exports, redemptions, balances, and integration contracts |
 | Xero Integration Work | OAuth 2.0, invoice/payment/bill workflows, token refresh, queued processing, synchronization commands, and protection against duplicate or out-of-order TILL webhooks |
-| Independent MT5 Expert Advisors | Freelance engineering for a limited private group of Forex/Gold traders: automated, event-driven trading systems with signal detection, order execution, lifecycle state, persistence, risk controls, diagnostics, and extensive testing |
+| Independent MT5 Trading Bots & Strategy Systems | Freelance engineering for a limited private group of Forex/Gold traders: automated, event-driven trading systems with signal detection, order execution, lifecycle state, persistence, risk controls, diagnostics, and extensive testing |
 
 ### Additional portfolio projects
 
@@ -84,17 +85,42 @@ MQL4 and MQL5 are C/C++-influenced languages used to build programs for MetaTrad
 
 These EAs were developed as personal/freelance systems for a limited private group of Forex and Gold traders. Each has a different purpose and execution model, from engulfing setups and ticket-history reconstruction to Pin Bar/Bollinger Band signals and Fair Value Gap detection. They are research and engineering projects, not public investment products or promises of financial performance.
 
+### Additional application projects
+
+| Project | What it demonstrates |
+| --- | --- |
+| Human Resource Management System | End-to-end Laravel, Vue.js, and MySQL platform with employee management, attendance, leave, expenses, performance evaluation, authentication, responsive workflows, and data integrity |
+| Online Laundry Management System | Laravel/MySQL operations platform for order placement, tracking, payments, staff scheduling, real-time notifications, and reporting/analytics |
+| All About Dairy B2B Marketplace | Laravel/MySQL marketplace connecting farmers, distributors, and retailers with real-time pricing, vendor management, supply-chain visibility, and escrow payment workflows |
+| Car Parking Management System | Laravel/MySQL parking platform with real-time slot availability, digital ticket generation, authentication, payments, and occupancy analytics |
+
 Some professional work is kept private because it belongs to the product/company that commissioned it. Where the source cannot be shared, I describe the engineering problem and outcome without exposing proprietary code or data.
 
 ## Professional experience
 
-At XEPOS Ltd., I contribute to private retail, Hospitality, and Loyalty products used across connected TILL, Point of Sale, desktop, and cloud workflows. My work includes Laravel APIs, multi-tenant Loyalty services, Xero integrations, queued jobs, Webhooks, synchronization, concurrency-safe ledgers, and frontend delivery in Vue and React.
+My experience spans production product companies, client-facing application teams, infrastructure support, and independent/freelance product delivery. I have worked across retail, Hospitality, Loyalty, business operations, marketplaces, HR, logistics, and automation systems—not only within one repository or one company.
+
+### XEPOS Ltd. — Full Stack Developer | February 2026 – Present
+
+I contribute to private Retail, Hospitality, and Loyalty products used across connected TILL, Point of Sale, desktop, and cloud workflows. My work includes Laravel APIs, multi-tenant Loyalty services, Xero integrations, queued jobs, Webhooks, synchronization, concurrency-safe ledgers, and frontend delivery in Vue and React.
+
+### STechSole — Laravel Developer | September 2023 – February 2026
+
+Built and maintained REST APIs in Laravel for Vue.js, HTML, CSS, and JavaScript clients; delivered responsive Blade and Vue.js interfaces across multiple client applications; worked with Product and Design; and improved existing systems through modular service-layer code, middleware, migrations, debugging, optimization, and regression reduction.
+
+### iT Life — Backend Developer, PHP/Laravel | March 2023 – August 2023
+
+Built and maintained custom PHP/Laravel and JavaScript applications, supported responsive cross-device experiences, collaborated with cross-functional teams on releases, and provided ongoing maintenance, updates, and technical support for live client websites.
+
+### Systems Limited — Cloud & Infrastructure Technical Support Intern | October 2022 – February 2023
+
+Configured Microsoft AX 2012 and Microsoft Dynamics 365 environments, gained practical exposure to Microsoft Azure and Power Platform, and supported customers by investigating Microsoft product issues and managing technical queries through Email and Microsoft Teams.
 
 The source repositories remain private under the company organization. This profile describes my engineering contribution without presenting employer-owned code as personal intellectual property.
 
-### Professional impact across XEPOS products
+### Professional impact across Retail, Hospitality, and Loyalty products
 
-- **Loyalty platform architecture:** independently designed and built a complete, separate loyalty platform that integrates with the till and middle application, enabling the same loyalty capabilities to work across hospitality and retail while synchronizing state across all three platforms
+- **Loyalty platform architecture:** independently designed and built a complete, separate Loyalty Program that can be installed into Hospitality and Retail host applications, then integrated with their TILL and Point of Sale workflows while synchronizing state across the integration boundary
 - **Loyalty Program:** built and maintained member, reward, tier, campaign, QR, export, redemption, balance, and Point of Sale-facing workflows across multiple services
 - **Hospitality systems:** supported operational product flows, integrations, synchronization jobs, and APIs used alongside desktop applications maintained by C# teams
 - **Retail platforms:** worked on TILL/cloud synchronization, accounting integrations, Webhook processing, multi-tenant business rules, and resilient event flows
@@ -109,7 +135,7 @@ The source repositories remain private under the company organization. This prof
 - **Cross-architecture delivery:** translated business requirements into coordinated changes across Laravel services, databases, queue workers, Third-party APIs, browser clients, and C# desktop applications while collaborating with multiple specialist teams and projects
 - **Production ownership:** investigated defects across client, API, queue, database, and third-party boundaries, then improved tests, diagnostics, documentation, and recovery paths
 
-Much of this work appears in GitHub's private contribution activity and merged pull-request history, while repository contents remain restricted. The public profile therefore documents the systems, responsibilities, and engineering problems I worked on rather than publishing company source.
+Much of the XEPOS work appears in GitHub's private contribution activity and merged pull-request history, while repository contents remain restricted. The public profile therefore documents the systems, responsibilities, and engineering problems I worked on rather than publishing company source.
 
 ## Tech stack
 
