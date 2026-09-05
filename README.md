@@ -16,7 +16,7 @@
 
 I build backend-led products that keep business workflows consistent under real-world traffic. My strongest area is Laravel and PHP backend engineering, with practical frontend delivery in Vue, React, and TypeScript.
 
-Currently, I work on production retail, hospitality, and loyalty platforms: multi-tenant APIs, POS/till integrations, accounting integrations, background jobs, and the synchronization boundaries where systems need to agree.
+Currently, I work on production retail, hospitality, and loyalty platforms: multi-tenant APIs, TILL and Point of Sale integrations, accounting integrations, background jobs, and the synchronization boundaries where systems need to agree.
 
 I am especially interested in backend and platform roles where correctness, maintainability, and dependable integrations matter as much as feature delivery.
 
@@ -28,28 +28,31 @@ flowchart LR
     API --> DOMAIN[Domain Services]
     DOMAIN --> DB[(MySQL)]
     DOMAIN --> JOBS[Queues / Redis]
-    DOMAIN --> EXT[Xero / WhatsApp / Stripe / POS]
-    JOBS --> EXT
+    DOMAIN --> LOYALTY[Loyalty Program]
+    LOYALTY --> TILL[TILL / Point of Sale]
+    LOYALTY --> MIDDLE[Middle Application]
+    JOBS --> EXT[Xero / WhatsApp / Stripe / Webhooks]
+    LOYALTY --> JOBS
 ```
 
-I focus on the boundaries where products become dependable: authorization, tenant isolation, state transitions, retries, idempotency, observability, and integration failure handling.
+I focus on the boundaries where products become dependable: authorization, tenant isolation, state transitions, retries, idempotency, observability, and integration failure handling. The Loyalty Program is a good example: it coordinates the TILL, the Middle Application, and the Loyalty service so the same member, reward, and redemption state can move reliably between Hospitality and Retail workflows.
 
 ### How I think about the architecture
 
 - **API-first contracts:** design REST endpoints, validation rules, authentication, pagination, error responses, and stable contracts for multiple client applications
 - **Asynchronous work:** use queues and Redis for exports, notifications, synchronization, retries, webhook processing, and long-running integration jobs
-- **Reliable synchronization:** reconcile POS/till, cloud, loyalty, and accounting state while handling duplicates, retries, out-of-order events, and partial failures
+- **Reliable synchronization:** reconcile TILL, Point of Sale, cloud, Loyalty, and accounting state while handling duplicates, retries, out-of-order events, and partial failures
 - **Safe domain state:** use transactions, pessimistic locking, idempotency keys, explicit state machines, and audit trails for balances, payments, rewards, and operational records
 - **Integration boundaries:** isolate OAuth 2.0, token refresh, webhooks, third-party APIs, and provider-specific behavior behind testable services
-- **Operational feedback:** add diagnostics, structured logs, API documentation, focused tests, and debugging paths that help teams understand production behavior
+- **Operational feedback:** add diagnostics, structured logs, API documentation, focused tests, and recovery paths so engineers can understand and repair production behavior
 
-The result is architecture that can serve browser clients, background workers, desktop applications, and external platforms without letting each consumer invent its own business rules. A major example is the loyalty platform I independently designed and built as a separate, reusable product: it connects the till, the middle application, and the loyalty platform so loyalty workflows can be integrated into both hospitality and retail environments while keeping data synchronized across all three layers.
+The result is architecture that can serve browser clients, background workers, desktop applications, and external platforms without letting each consumer invent its own business rules. A major example is the separate Loyalty Program I independently designed and built: it connects the TILL, Middle Application, and Loyalty service so Loyalty workflows can be integrated into both Hospitality and Retail environments while keeping data synchronized across all three layers.
 
 ## What I work on
 
 - Designing Laravel APIs, services, middleware, migrations, and Eloquent models
 - Multi-tenant architecture and scoped authorization with Sanctum
-- POS/till ↔ cloud ↔ loyalty/accounting synchronization
+- TILL ↔ Point of Sale ↔ cloud ↔ Loyalty/Accounting synchronization
 - Xero OAuth 2.0, webhooks, queued jobs, token refresh, and third-party integrations
 - Idempotency, pessimistic locking, transactions, and concurrency-safe money-like state
 - Vue 3, React, TypeScript, Blade, Tailwind, Vite, and responsive product interfaces
@@ -59,45 +62,51 @@ The result is architecture that can serve browser clients, background workers, d
 
 | Project | What it demonstrates |
 | --- | --- |
-| [Rent a Car Management SaaS](https://github.com/anskhanz97/rent-a-car-management-system) | Laravel 12 + Vue 3/TypeScript multi-tenant rental operations platform with scoped access, fleet, reservations, pricing, integrations, auditability, and a documented delivery roadmap |
-| XEPOS Loyalty Platform | Loyalty programs, members, rewards, tiers, campaigns, QR flows, exports, and POS contracts across retail and hospitality systems |
-| Xero Integration Work | OAuth 2.0, invoice/payment/bill workflows, token refresh, queued processing, and protection against out-of-order till webhooks |
-| Independent MT5 Expert Advisors | Modular MQL5 systems with detector, order, lifecycle, state, JSON persistence, risk, and diagnostic layers |
+| [Rent a Car Management SaaS](https://github.com/anskhanz97/rent-a-car-management-system) | Personal Laravel 12 + Vue 3/TypeScript SaaS for rental businesses: multi-tenancy, scoped access, fleet and customer operations, availability, quotations, reservations, pricing, handover/return evidence, maintenance, payments, deposits, owner settlements, integrations, auditability, OpenAPI, queues, Horizon, and a documented delivery roadmap |
+| Loyalty Program | Independently designed and built as a separate, reusable platform spanning the TILL, Middle Application, Hospitality, and Retail workflows; covers members, rewards, tiers, campaigns, QR flows, exports, redemptions, balances, and Point of Sale contracts |
+| Xero Integration Work | OAuth 2.0, invoice/payment/bill workflows, token refresh, queued processing, synchronization commands, and protection against duplicate or out-of-order TILL webhooks |
+| Independent MT5 Expert Advisors | Freelance engineering for a limited private group of Forex/Gold traders: automated, event-driven trading systems with signal detection, order execution, lifecycle state, persistence, risk controls, diagnostics, and extensive testing |
 
 ### Additional portfolio projects
 
 | Project | Focus |
 | --- | --- |
-| [Tasmiya Enterprises](https://github.com/anskhanz97/tasmiya-enterprises) | Business management workflows and full-stack application structure |
-| [GoldEA](https://github.com/anskhanz97/GoldEA) | Modular MT5 automation, trade lifecycle, risk, and diagnostics |
-| [GoldEA-Magic](https://github.com/anskhanz97/GoldEA-Magic) | Timestamped setup detection, state tracking, and trade logic |
-| [GoldEA-TicketIds](https://github.com/anskhanz97/GoldEA-TicketIds) | Ticket history, setup identity, and reliable record reconstruction |
-| [GoldEA-15mPinbarBollingerband](https://github.com/anskhanz97/GoldEA-15mPinbarBollingerband) | Timeframe-specific signal detection and indicator-based execution |
-| [FvgEA](https://github.com/anskhanz97/FvgEA) | Fair-value-gap detection and structured trade execution |
+| [Tasmiya Enterprises](https://github.com/anskhanz97/tasmiya-enterprises) | Freelance Laravel/Blade business website and profile-management system for an active Lahore-based business, with authentication, role-based administration, team profiles, multi-division content, responsive layouts, and project-owned assets |
+| [GoldEA](https://github.com/anskhanz97/GoldEA) | H1 Gold/XAUUSD engulfing strategy with deterministic setup IDs, multi-order range execution, visual setup state, trade lifecycle handling, narrative/table diagnostics, and planned JSON-backed persistence |
+| [GoldEA-Magic](https://github.com/anskhanz97/GoldEA-Magic) | Modular engulfing strategy focused on magic-number identity, timestamp tracking, persistent state, duplicate prevention, and lifecycle reconstruction |
+| [GoldEA-TicketIds](https://github.com/anskhanz97/GoldEA-TicketIds) | Ticket-history detection, setup identity, deterministic duplicate prevention, and reliable reconstruction of what happened to each trade setup |
+| [GoldEA-15mPinbarBollingerband](https://github.com/anskhanz97/GoldEA-15mPinbarBollingerband) | 15-minute Pin Bar and Bollinger Band system with candle-quality, structure, volume, ATR, risk-cap, partial take-profit, breakeven, and trailing-stop experiments |
+| [FvgEA](https://github.com/anskhanz97/FvgEA) | Fair Value Gap detection with separated signal analysis, order execution, chart-object lifecycle, and modular MQL5 design |
+
+### Why the MT5 work matters
+
+MQL4 and MQL5 are C/C++-influenced languages used to build programs for MetaTrader, including Expert Advisors that react to market events, inspect price data, place and manage broker orders, and maintain state over time. I approach them like small event-driven backend systems: strategy modules detect signals, execution modules call the trading platform, lifecycle modules reconcile order and position state, persistence prevents duplicate actions, and diagnostics make every decision explainable. That requires the same engineering habits used in backend work—clear boundaries, deterministic identifiers, state machines, failure handling, risk controls, observability, and repeated testing—applied to a very different domain.
+
+These EAs were developed as personal/freelance systems for a limited private group of Forex and Gold traders. Each has a different purpose and execution model, from engulfing setups and ticket-history reconstruction to Pin Bar/Bollinger Band signals and Fair Value Gap detection. They are research and engineering projects, not public investment products or promises of financial performance.
 
 Some professional work is kept private because it belongs to the product/company that commissioned it. Where the source cannot be shared, I describe the engineering problem and outcome without exposing proprietary code or data.
 
 ## Professional experience
 
-At XEPOS Ltd., I contribute to private retail, hospitality, and loyalty products used across connected till and cloud workflows. My work includes Laravel APIs, multi-tenant loyalty services, Xero integrations, queued jobs, webhooks, synchronization, concurrency-safe ledgers, and frontend delivery in Vue and React.
+At XEPOS Ltd., I contribute to private retail, Hospitality, and Loyalty products used across connected TILL, Point of Sale, desktop, and cloud workflows. My work includes Laravel APIs, multi-tenant Loyalty services, Xero integrations, queued jobs, Webhooks, synchronization, concurrency-safe ledgers, and frontend delivery in Vue and React.
 
 The source repositories remain private under the company organization. This profile describes my engineering contribution without presenting employer-owned code as personal intellectual property.
 
 ### Professional impact across XEPOS products
 
 - **Loyalty platform architecture:** independently designed and built a complete, separate loyalty platform that integrates with the till and middle application, enabling the same loyalty capabilities to work across hospitality and retail while synchronizing state across all three platforms
-- **Loyalty platforms:** built and maintained member, reward, tier, campaign, QR, export, redemption, balance, and POS-facing workflows across multiple services
+- **Loyalty Program:** built and maintained member, reward, tier, campaign, QR, export, redemption, balance, and Point of Sale-facing workflows across multiple services
 - **Hospitality systems:** supported operational product flows, integrations, synchronization jobs, and APIs used alongside desktop applications maintained by C# teams
-- **Retail platforms:** worked on till/cloud synchronization, accounting integrations, webhook processing, multi-tenant business rules, and resilient event flows
+- **Retail platforms:** worked on TILL/cloud synchronization, accounting integrations, Webhook processing, multi-tenant business rules, and resilient event flows
 - **Laravel backend:** delivered APIs, controllers, form requests, middleware, policies, services, jobs, events, listeners, notifications, migrations, Eloquent models, resources, and scheduled commands
 - **Queues and workers:** handled queued exports, webhook processing, integration retries, token refresh, background synchronization, failure recovery, and operational diagnostics using queue and Redis patterns
 - **Queue reliability on Forge:** created and configured multiple queue workers on Laravel Forge to distribute workloads, prevent bottlenecks, improve throughput, and provide capacity for future growth
 - **After-commit consistency:** used Laravel `DB::afterCommit` patterns when workers were saturated or overloaded, ensuring follow-up jobs were dispatched only after the database transaction had safely committed
 - **Data correctness:** protected loyalty and money-like state with transactions, locking, idempotency, validation, auditability, and explicit state transitions
 - **API enablement:** provided and maintained APIs for C# desktop developers, helping them build, integrate, debug, and maintain desktop workflows without duplicating core business rules
-- **Third-party platforms:** integrated and maintained Xero, WhatsApp, Stripe, POS, and other external APIs with authentication, webhooks, retries, token refresh, and failure-aware processing
+- **Third-party APIs:** integrated and maintained Xero, WhatsApp, Stripe, Point of Sale, and other external APIs with authentication, Webhooks, retries, token refresh, and failure-aware processing
 - **Application automation:** built synchronization commands, schedulers, observers, events, listeners, and background workflows to keep platforms aligned without relying on manual intervention
-- **Cross-architecture delivery:** translated business requirements into coordinated changes across independent Laravel services, databases, queue workers, third-party APIs, browser clients, and C# desktop applications while collaborating with multiple specialist teams
+- **Cross-architecture delivery:** translated business requirements into coordinated changes across Laravel services, databases, queue workers, Third-party APIs, browser clients, and C# desktop applications while collaborating with multiple specialist teams and projects
 - **Production ownership:** investigated defects across client, API, queue, database, and third-party boundaries, then improved tests, diagnostics, documentation, and recovery paths
 
 Much of this work appears in GitHub's private contribution activity and merged pull-request history, while repository contents remain restricted. The public profile therefore documents the systems, responsibilities, and engineering problems I worked on rather than publishing company source.
@@ -116,11 +125,12 @@ I use AI tools as part of my development workflow for exploration, scaffolding, 
 
 ## Engineering principles
 
-- Make state transitions explicit and observable
-- Protect financial and loyalty balances with transactions, locking, and idempotency
-- Keep integration boundaries testable and failure-aware
-- Prefer clear documentation and small, reviewable changes
-- Treat security, privacy, and ownership as part of engineering quality
+- **Make state transitions explicit:** model important changes—such as a reservation, reward redemption, payment, or trade setup—as named, validated states instead of relying on loosely related flags.
+- **Protect critical data:** use transactions, locking, idempotency, and audit history when concurrent requests could affect balances, availability, payments, or Loyalty records.
+- **Design for failure:** assume queues, Webhooks, Third-party APIs, networks, and external providers can retry, arrive out of order, or become unavailable; make recovery safe and observable.
+- **Keep boundaries understandable:** give each module, API, worker, and integration a clear responsibility so teams can change one part without silently breaking another.
+- **Prefer evidence over assumption:** use tests, structured logs, diagnostics, documentation, and reproducible workflows to explain what the system did and why.
+- **Treat security and ownership as engineering quality:** protect credentials and customer data, apply least privilege, and clearly distinguish personal work from client- or company-owned systems.
 
 ## Connect
 
