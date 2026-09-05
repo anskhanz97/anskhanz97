@@ -34,6 +34,17 @@ flowchart LR
 
 I focus on the boundaries where products become dependable: authorization, tenant isolation, state transitions, retries, idempotency, observability, and integration failure handling.
 
+### How I think about the architecture
+
+- **API-first contracts:** design REST endpoints, validation rules, authentication, pagination, error responses, and stable contracts for multiple client applications
+- **Asynchronous work:** use queues and Redis for exports, notifications, synchronization, retries, webhook processing, and long-running integration jobs
+- **Reliable synchronization:** reconcile POS/till, cloud, loyalty, and accounting state while handling duplicates, retries, out-of-order events, and partial failures
+- **Safe domain state:** use transactions, pessimistic locking, idempotency keys, explicit state machines, and audit trails for balances, payments, rewards, and operational records
+- **Integration boundaries:** isolate OAuth 2.0, token refresh, webhooks, third-party APIs, and provider-specific behavior behind testable services
+- **Operational feedback:** add diagnostics, structured logs, API documentation, focused tests, and debugging paths that help teams understand production behavior
+
+The result is architecture that can serve browser clients, background workers, desktop applications, and external platforms without letting each consumer invent its own business rules.
+
 ## What I work on
 
 - Designing Laravel APIs, services, middleware, migrations, and Eloquent models
@@ -53,6 +64,17 @@ I focus on the boundaries where products become dependable: authorization, tenan
 | Xero Integration Work | OAuth 2.0, invoice/payment/bill workflows, token refresh, queued processing, and protection against out-of-order till webhooks |
 | Independent MT5 Expert Advisors | Modular MQL5 systems with detector, order, lifecycle, state, JSON persistence, risk, and diagnostic layers |
 
+### Additional portfolio projects
+
+| Project | Focus |
+| --- | --- |
+| [Tasmiya Enterprises](https://github.com/anskhanz97/tasmiya-enterprises) | Business management workflows and full-stack application structure |
+| [GoldEA](https://github.com/anskhanz97/GoldEA) | Modular MT5 automation, trade lifecycle, risk, and diagnostics |
+| [GoldEA-Magic](https://github.com/anskhanz97/GoldEA-Magic) | Timestamped setup detection, state tracking, and trade logic |
+| [GoldEA-TicketIds](https://github.com/anskhanz97/GoldEA-TicketIds) | Ticket history, setup identity, and reliable record reconstruction |
+| [GoldEA-15mPinbarBollingerband](https://github.com/anskhanz97/GoldEA-15mPinbarBollingerband) | Timeframe-specific signal detection and indicator-based execution |
+| [FvgEA](https://github.com/anskhanz97/FvgEA) | Fair-value-gap detection and structured trade execution |
+
 Some professional work is kept private because it belongs to the product/company that commissioned it. Where the source cannot be shared, I describe the engineering problem and outcome without exposing proprietary code or data.
 
 ## Professional experience
@@ -63,10 +85,15 @@ The source repositories remain private under the company organization. This prof
 
 ### Professional impact across XEPOS products
 
-- **Loyalty:** built and maintained member, reward, tier, campaign, QR, export, and POS-facing workflows
-- **Hospitality:** supported product flows and integrations across operational systems where accuracy and reliability matter
-- **Retail:** worked on till/cloud synchronization, accounting integrations, webhook processing, and multi-tenant business rules
-- **Platform engineering:** handled authentication, queued jobs, token refresh, diagnostics, API contracts, concurrency, and production troubleshooting
+- **Loyalty platforms:** built and maintained member, reward, tier, campaign, QR, export, redemption, balance, and POS-facing workflows across multiple services
+- **Hospitality systems:** supported operational product flows, integrations, synchronization jobs, and APIs used alongside desktop applications maintained by C# teams
+- **Retail platforms:** worked on till/cloud synchronization, accounting integrations, webhook processing, multi-tenant business rules, and resilient event flows
+- **Laravel backend:** delivered APIs, controllers, form requests, middleware, policies, services, jobs, events, listeners, notifications, migrations, Eloquent models, resources, and scheduled commands
+- **Queues and workers:** handled queued exports, webhook processing, integration retries, token refresh, background synchronization, failure recovery, and operational diagnostics using queue and Redis patterns
+- **Data correctness:** protected loyalty and money-like state with transactions, locking, idempotency, validation, auditability, and explicit state transitions
+- **API enablement:** provided and maintained APIs for C# desktop developers, helping them build, integrate, debug, and maintain desktop workflows without duplicating core business rules
+- **Cross-functional delivery:** collaborated across backend, frontend, C# desktop, QA, product, and integration teams while working across multiple projects, APIs, and architecture layers
+- **Production ownership:** investigated defects across client, API, queue, database, and third-party boundaries, then improved tests, diagnostics, documentation, and recovery paths
 
 Much of this work appears in GitHub's private contribution activity and merged pull-request history, while repository contents remain restricted. The public profile therefore documents the systems, responsibilities, and engineering problems I worked on rather than publishing company source.
 
