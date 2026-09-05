@@ -1,10 +1,12 @@
 # Hi, I'm Ans Khan 👋
 
-### Full-Stack Developer | Laravel / PHP | APIs, Integrations & Reliable Systems
+### Backend-first Full-Stack Developer | Laravel / PHP | APIs, Integrations & Reliable Systems
 
 I build backend-led products that keep business workflows consistent under real-world traffic. My strongest area is Laravel and PHP backend engineering, with practical frontend delivery in Vue, React, and TypeScript.
 
 Currently, I work on production retail, hospitality, and loyalty platforms: multi-tenant APIs, POS/till integrations, accounting integrations, background jobs, and the synchronization boundaries where systems need to agree.
+
+I am especially interested in backend and platform roles where correctness, maintainability, and dependable integrations matter as much as feature delivery.
 
 ## What I work on
 
@@ -27,6 +29,12 @@ Currently, I work on production retail, hospitality, and loyalty platforms: mult
 
 Some professional work is kept private because it belongs to the product/company that commissioned it. Where the source cannot be shared, I describe the engineering problem and outcome without exposing proprietary code or data.
 
+## Professional experience
+
+At XEPOS Ltd., I contribute to private retail, hospitality, and loyalty products used across connected till and cloud workflows. My work includes Laravel APIs, multi-tenant loyalty services, Xero integrations, queued jobs, webhooks, synchronization, concurrency-safe ledgers, and frontend delivery in Vue and React.
+
+The source repositories remain private under the company organization. This profile describes my engineering contribution without presenting employer-owned code as personal intellectual property.
+
 ## Tech stack
 
 `PHP` `Laravel` `MySQL` `Eloquent` `Laravel Sanctum` `Queues` `Redis` `Vue 3` `React` `TypeScript` `JavaScript` `Tailwind` `Vite` `REST APIs` `OAuth 2.0` `Webhooks` `Git` `Postman` `MQL5`
@@ -34,6 +42,14 @@ Some professional work is kept private because it belongs to the product/company
 ## How I use AI
 
 I use AI tools as part of my development workflow for exploration, scaffolding, documentation, test ideas, and faster iteration. I remain responsible for the design decisions, implementation, security review, tests, debugging, and production behavior of the code I ship.
+
+## Engineering principles
+
+- Make state transitions explicit and observable
+- Protect financial and loyalty balances with transactions, locking, and idempotency
+- Keep integration boundaries testable and failure-aware
+- Prefer clear documentation and small, reviewable changes
+- Treat security, privacy, and ownership as part of engineering quality
 
 ## Connect
 
