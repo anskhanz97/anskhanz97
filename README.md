@@ -100,19 +100,19 @@ Some professional work is kept private because it belongs to the product/company
 
 My experience spans production product companies, client-facing application teams, infrastructure support, and independent/freelance product delivery. I have worked across retail, Hospitality, Loyalty, business operations, marketplaces, HR, logistics, and automation systems—not only within one repository or one company.
 
-### XEPOS Ltd. — Full Stack Developer | February 2026 – Present
+### XEPOS Ltd. — Full Stack Developer
 
 I contribute to private Retail, Hospitality, and Loyalty products used across connected TILL, Point of Sale, desktop, and cloud workflows. My work includes Laravel APIs, multi-tenant Loyalty services, Xero integrations, queued jobs, Webhooks, synchronization, concurrency-safe ledgers, and frontend delivery in Vue and React.
 
-### STechSole — Laravel Developer | September 2023 – February 2026
+### STechSole — Laravel Developer
 
 Built and maintained REST APIs in Laravel for Vue.js, HTML, CSS, and JavaScript clients; delivered responsive Blade and Vue.js interfaces across multiple client applications; worked with Product and Design; and improved existing systems through modular service-layer code, middleware, migrations, debugging, optimization, and regression reduction.
 
-### iT Life — Backend Developer, PHP/Laravel | March 2023 – August 2023
+### iT Life — Backend Developer, PHP/Laravel
 
 Built and maintained custom PHP/Laravel and JavaScript applications, supported responsive cross-device experiences, collaborated with cross-functional teams on releases, and provided ongoing maintenance, updates, and technical support for live client websites.
 
-### Systems Limited — Cloud & Infrastructure Technical Support Intern | October 2022 – February 2023
+### Systems Limited — Cloud & Infrastructure Technical Support Intern
 
 Configured Microsoft AX 2012 and Microsoft Dynamics 365 environments, gained practical exposure to Microsoft Azure and Power Platform, and supported customers by investigating Microsoft product issues and managing technical queries through Email and Microsoft Teams.
 
