@@ -100,25 +100,25 @@ Some professional work is kept private because it belongs to the product/company
 
 My experience spans production product companies, client-facing application teams, infrastructure support, and independent/freelance product delivery. I have worked across retail, Hospitality, Loyalty, business operations, marketplaces, HR, logistics, and automation systems—not only within one repository or one company.
 
-### XEPOS Ltd. — Full Stack Developer
+### Systems Limited — Cloud & Infrastructure Technical Support Intern
 
-I contribute to private Retail, Hospitality, and Loyalty products used across connected TILL, Point of Sale, desktop, and cloud workflows. My work includes Laravel APIs, multi-tenant Loyalty services, Xero integrations, queued jobs, Webhooks, synchronization, concurrency-safe ledgers, and frontend delivery in Vue and React.
-
-### STechSole — Laravel Developer
-
-Built and maintained REST APIs in Laravel for Vue.js, HTML, CSS, and JavaScript clients; delivered responsive Blade and Vue.js interfaces across multiple client applications; worked with Product and Design; and improved existing systems through modular service-layer code, middleware, migrations, debugging, optimization, and regression reduction.
+Configured Microsoft AX 2012 and Microsoft Dynamics 365 environments, gained practical exposure to Microsoft Azure and Power Platform, and supported customers by investigating Microsoft product issues and managing technical queries through Email and Microsoft Teams.
 
 ### iT Life — Backend Developer, PHP/Laravel
 
 Built and maintained custom PHP/Laravel and JavaScript applications, supported responsive cross-device experiences, collaborated with cross-functional teams on releases, and provided ongoing maintenance, updates, and technical support for live client websites.
 
-### Systems Limited — Cloud & Infrastructure Technical Support Intern
+### STechSole — Laravel Developer
 
-Configured Microsoft AX 2012 and Microsoft Dynamics 365 environments, gained practical exposure to Microsoft Azure and Power Platform, and supported customers by investigating Microsoft product issues and managing technical queries through Email and Microsoft Teams.
+Built and maintained REST APIs in Laravel for Vue.js, HTML, CSS, and JavaScript clients; delivered responsive Blade and Vue.js interfaces across multiple client applications; worked with Product and Design; and improved existing systems through modular service-layer code, middleware, migrations, debugging, optimization, and regression reduction.
+
+### XEPOS Ltd. — Full Stack Developer
+
+I contribute to private Retail, Hospitality, and Loyalty products used across connected TILL, Point of Sale, desktop, and cloud workflows. My work includes Laravel APIs, multi-tenant Loyalty services, Xero integrations, queued jobs, Webhooks, synchronization, concurrency-safe ledgers, and frontend delivery in Vue and React.
 
 The source repositories remain private under the company organization. This profile describes my engineering contribution without presenting employer-owned code as personal intellectual property.
 
-### Professional impact across Retail, Hospitality, and Loyalty products
+### Professional impact across different projects
 
 - **Loyalty platform architecture:** independently designed and built a complete, separate Loyalty Program that can be installed into Hospitality and Retail host applications, then integrated with their TILL and Point of Sale workflows while synchronizing state across the integration boundary
 - **Loyalty Program:** built and maintained member, reward, tier, campaign, QR, export, redemption, balance, and Point of Sale-facing workflows across multiple services
