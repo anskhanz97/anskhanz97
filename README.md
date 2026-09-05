@@ -2,11 +2,37 @@
 
 ### Backend-first Full-Stack Developer | Laravel / PHP | APIs, Integrations & Reliable Systems
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Backend-Laravel%20%7C%20PHP-ff2d20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel and PHP" />
+  <img src="https://img.shields.io/badge/Frontend-Vue%20%7C%20React-42b883?style=for-the-badge&logo=vuedotjs&logoColor=white" alt="Vue and React" />
+  <img src="https://img.shields.io/badge/Integrations-OAuth%20%7C%20Webhooks-6f42c1?style=for-the-badge&logo=dependabot&logoColor=white" alt="Integrations" />
+  <img src="https://img.shields.io/badge/Focus-Reliable%20Systems-0ea5e9?style=for-the-badge&logo=target&logoColor=white" alt="Reliable systems" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/anskhanz97"><img src="https://img.shields.io/github/followers/anskhanz97?label=Followers&style=flat-square&color=181717&logo=github" alt="GitHub followers" /></a>
+  <a href="mailto:anskhanz97@gmail.com"><img src="https://img.shields.io/badge/Available%20for-Backend%20%26%20Platform%20Roles-16a34a?style=flat-square" alt="Available for backend and platform roles" /></a>
+</p>
+
 I build backend-led products that keep business workflows consistent under real-world traffic. My strongest area is Laravel and PHP backend engineering, with practical frontend delivery in Vue, React, and TypeScript.
 
 Currently, I work on production retail, hospitality, and loyalty platforms: multi-tenant APIs, POS/till integrations, accounting integrations, background jobs, and the synchronization boundaries where systems need to agree.
 
 I am especially interested in backend and platform roles where correctness, maintainability, and dependable integrations matter as much as feature delivery.
+
+## Architecture lens
+
+```mermaid
+flowchart LR
+    UI[Vue / React / Blade] --> API[Laravel API Platform]
+    API --> DOMAIN[Domain Services]
+    DOMAIN --> DB[(MySQL)]
+    DOMAIN --> JOBS[Queues / Redis]
+    DOMAIN --> EXT[Xero / POS / Webhooks]
+    JOBS --> EXT
+```
+
+I focus on the boundaries where products become dependable: authorization, tenant isolation, state transitions, retries, idempotency, observability, and integration failure handling.
 
 ## What I work on
 
@@ -47,6 +73,10 @@ Much of this work appears in GitHub's private contribution activity and merged p
 ## Tech stack
 
 `PHP` `Laravel` `MySQL` `Eloquent` `Laravel Sanctum` `Queues` `Redis` `Vue 3` `React` `TypeScript` `JavaScript` `Tailwind` `Vite` `REST APIs` `OAuth 2.0` `Webhooks` `Git` `Postman` `MQL5`
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=php,laravel,mysql,redis,vue,react,ts,js,tailwind,vite,git,postman" alt="Technology stack icons" />
+</p>
 
 ## How I use AI
 
