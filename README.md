@@ -34,6 +34,7 @@ I designed and implemented the product workflows, Laravel/Vue application, respo
 
 ## Professional contributions at XEPOS
 
+- **Retail and Hospitality:** developed and enhanced frontend interfaces and Laravel workflows across till/cloud synchronization, operational administration, reporting, accounting and connected applications, working with web and C# desktop teams.
 - **Loyalty platform:** independently designed and built a separate multi-tenant application for members, rewards, tiers, campaigns, QR interactions and balances, integrated with Retail/Hospitality till workflows for earn, redeem, refund and reversal.
 - **Accounting integrations:** delivered Xero across Retail and Hospitality and contributed QuickBooks synchronization, including OAuth/token refresh, contacts/products/purchases, invoice/payment processing, taxes, discounts, partial/full refunds, voids and reconciliation.
 - **Delivery Driver:** built the Laravel backend and Vue operations portal, tenant provisioning, Retail order ingestion, driver APIs, wallet and cash-custody records, offline reconciliation, proof of delivery, reporting and notification infrastructure. Flutter/C# clients are supported through API contracts and handoffs; real-device/provider verification is tracked separately.
@@ -43,6 +44,8 @@ I designed and implemented the product workflows, Laravel/Vue application, respo
 - **Reliability and delivery:** transactions, locking, idempotency, queues, retries, structured application/API/integration logs, Forge workers, synchronization recovery, Postman collections and production troubleshooting across till, cloud and external systems.
 
 Employer-owned code remains private. These descriptions identify my contributions without publishing company source or customer data.
+
+**Live platforms:** [Retail](https://portal.xepos.net/) · [Hospitality](https://cloud.xepos.co.uk/) · [Loyalty](https://loyalty.xepos.co.uk/) · [Delivery Driver](https://driver.xepos.co.uk/)
 
 ## Client work and earlier experience
 
